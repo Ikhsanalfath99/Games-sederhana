@@ -1,0 +1,134 @@
+////////////////////
+// Ikhsan Al-Fath //
+////////////////////
+program batu_gunting_kertas;
+
+// fungsi apalah saya jg kurang paham
+uses crt;
+
+// Deklarasi variabel
+var ran: integer;
+com, player, ket: string;
+
+begin
+
+//clrscr itu gunananya untuk membersihkan layar, perlu di ingat clrscr ini hanya bisa berjalan jika ada perintah uses crt di atas 
+clrscr;
+// Mencetak judul
+writeln('===================================================');
+writeln('GAMES SEDERHANDA JAJANKEN ATAU BATU GUNTING KERTAS');
+writeln('===================================================');
+writeln;
+
+// Agar variabel ran menjadi random/angka acak
+randomize;
+// memberi nilai random di variabel ran dengan nilai 1 sampai 3 (+1 itu karena variabel ran dimulai dari angka 0 sampai 2)
+// Maka dari itu saya tambahkan +1 agar nilai dri var rand menjadi 1-3
+ran:= random(3)+1;
+
+// if (kondisi jika nilai terpenuhi)
+// perthatikan diantara if ada begin dan end, sebenernya boleh saja tidak memakai begin dan end 
+// tapi jika baris di dalam if lebih dari 1 maka wajib untuk menambahkan perintah begin dan end
+// jika var ran bernilai 1 maka jalankan perintah di antara begin dan end
+if(ran = 1) then
+begin
+  // beri nilai var com / pilihan com itu batu
+  com:='batu';
+end
+
+// Jika kondisi ran tidak sama dengan 1 maka masuk ke else diantara begin dan end
+else
+begin
+  // jika var ran sama dengan 2
+  if(ran = 2) then
+  begin
+  // beri nilai var com / pilihan com itu gunting
+      com:='gunting';
+  end
+  // jika var ran tidak sama dengan 2, arinya var ran sama dengan 3
+  else
+  begin
+  // beri nilai var com / pilihan com itu kertas
+     com:='kertas';
+  end;
+
+end;
+
+writeln('PILIHAN : batu - gunting - kertas (huruf kecil)');
+writeln;
+write('Masukan salah satu pilihan anda : ');
+// Baca pilihan player
+readln(player);
+
+// jika pilihan player sama dengan pilihan computer,
+// Maka saya memberikan nilai var ket draw atau seri
+if(com = player) then
+begin
+  ket:='DRAW';
+end
+
+// jika tidak seri maka masuk ke dalam else
+// Untuk kebawahnya sama, saya hanya bermain di if dan else
+else
+begin
+ if(com = 'batu') then
+ begin
+   if(player = 'kertas') then
+   begin
+      ket:='WIN';
+   end
+
+   else
+   begin
+      ket:='LOSE';
+   end;
+ end
+
+ else
+ begin
+    if(com = 'kertas') then
+    begin
+       if(player = 'gunting') then
+       begin
+          ket:='WIN';
+       end
+
+       else
+       begin
+          ket:='LOSE';
+       end;
+
+    end
+
+    else
+    begin
+      if(com = 'gunting') then
+      begin
+        if(player = 'batu') then
+        begin
+          ket:='WIN';
+        end
+
+        else
+        begin
+          ket:='LOSE';
+        end;
+      end;
+    end;
+ end;
+end;
+
+writeln;
+writeln('PLAYER : ', player);
+writeln('COMPUTER : ', com);
+writeln;
+writeln;
+writeln('YOU ', ket);
+
+readln;
+end.
+
+///////////////////////
+// SEMOGA BERMANFAAT //
+///////////////////////
+
